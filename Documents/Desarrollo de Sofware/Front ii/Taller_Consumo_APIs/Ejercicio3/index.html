@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokédex</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="consola">
+    <!-- "Ojos" decorativos de la consola, estilo Pokédex clásica -->
+    <div class="luces">
+      <span class="luz luz-azul"></span>
+      <span class="luz luz-roja"></span>
+      <span class="luz luz-amarilla"></span>
+      <span class="luz luz-verde"></span>
+    </div>
+
+    <h1>Pokédex</h1>
+
+    <form id="formBusqueda" class="buscador" autocomplete="off">
+      <input
+        list="listaPokemon"
+        id="inputPokemon"
+        placeholder="Nombre o número (ej: pikachu, 25)"
+        aria-label="Buscar Pokémon"
+        required
+      />
+      <datalist id="listaPokemon"></datalist>
+      <button type="submit">Buscar</button>
+    </form>
+
+    <p id="mensaje" class="mensaje" role="status"></p>
+
+    <!-- Pantalla de la Pokédex -->
+    <section id="pantalla" class="pantalla oculto">
+      <div class="tarjeta-header">
+        <h2 id="nombre"></h2>
+        <span id="numero" class="numero"></span>
+      </div>
+
+      <div class="tipos" id="tipos"></div>
+
+      <img id="sprite" class="sprite" src="" alt="" />
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-etiqueta">HP</span>
+          <div class="stat-barra"><div id="barraHp" class="stat-relleno"></div></div>
+          <span id="valorHp" class="stat-valor"></span>
+        </div>
+        <div class="stat">
+          <span class="stat-etiqueta">Ataque</span>
+          <div class="stat-barra"><div id="barraAtaque" class="stat-relleno"></div></div>
+          <span id="valorAtaque" class="stat-valor"></span>
+        </div>
+        <div class="stat">
+          <span class="stat-etiqueta">Defensa</span>
+          <div class="stat-barra"><div id="barraDefensa" class="stat-relleno"></div></div>
+          <span id="valorDefensa" class="stat-valor"></span>
+        </div>
+      </div>
+
+      <p class="peso">Peso: <span id="peso"></span> kg</p>
+
+      <div class="habilidades">
+        <h3>Habilidades</h3>
+        <ul id="listaHabilidades"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Taller de Consumo de APIs · Programación Web 2 · Ejercicio 3 · Datos por PokéAPI</p>
+  </footer>
+
+  <script src="pokedex.js"></script>
+</body>
+</html>

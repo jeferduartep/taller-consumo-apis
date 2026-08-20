@@ -1,0 +1,161 @@
+/* ===========================================================
+   Paleta "cuarto oscuro de revelado":
+   fondo casi negro, tarjetas grafito, acento ámbar (luz de seguridad)
+   =========================================================== */
+:root {
+  --bg: #121212;
+  --panel: #1c1c1c;
+  --panel-border: #2e2e2e;
+  --texto: #f2ede3;
+  --texto-tenue: #9a958a;
+  --acento: #e8a03d; /* ámbar, como la luz roja/ámbar de un cuarto oscuro */
+  --radio: 4px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--texto);
+  font-family: 'IBM Plex Mono', monospace;
+  min-height: 100vh;
+}
+
+.topbar {
+  padding: 48px 24px 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.topbar h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.topbar h1 span { color: var(--acento); }
+
+.subtitle {
+  color: var(--texto-tenue);
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.status {
+  color: var(--texto-tenue);
+  font-size: 0.85rem;
+}
+
+.btn-reload {
+  background: transparent;
+  color: var(--acento);
+  border: 1px solid var(--acento);
+  border-radius: var(--radio);
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+
+.btn-reload:hover { background: var(--acento); color: #121212; }
+.btn-reload:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+
+/* Grid tipo "contact sheet" de rollo fotográfico */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.foto-card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radio);
+  overflow: hidden;
+  position: relative;
+}
+
+.foto-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%) contrast(1.05);
+  transition: filter .25s ease, transform .35s ease;
+}
+
+.foto-card:hover img {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.04);
+}
+
+.foto-info {
+  padding: 10px 12px 12px;
+  font-size: 0.78rem;
+  color: var(--texto-tenue);
+  line-height: 1.5;
+}
+
+.foto-info .autor {
+  color: var(--texto);
+  font-weight: 500;
+}
+
+.foto-info .frame-id {
+  color: var(--acento);
+}
+
+/* Etiqueta tipo "número de fotograma" en la esquina, como en un negativo real */
+.frame-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0,0,0,0.65);
+  color: var(--acento);
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+
+.error-box {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--texto-tenue);
+  border: 1px dashed var(--panel-border);
+  border-radius: var(--radio);
+}
+
+.error-box strong { color: var(--acento); }
+
+footer {
+  text-align: center;
+  color: var(--texto-tenue);
+  font-size: 0.75rem;
+  padding: 30px 0;
+}
+
+@media (max-width: 480px) {
+  .galeria { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .foto-card img { height: 160px; }
+}

@@ -1,0 +1,164 @@
+/* ===========================================================
+   Paleta "cielo despejado a atardecer": azul profundo -> durazno
+   =========================================================== */
+:root {
+  --azul-noche: #16213e;
+  --azul-medio: #1f4287;
+  --durazno: #ffb28b;
+  --texto: #fff8f0;
+  --texto-tenue: rgba(255, 248, 240, 0.7);
+  --radio: 18px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: 'Inter', sans-serif;
+  color: var(--texto);
+  background: linear-gradient(160deg, var(--azul-noche) 0%, var(--azul-medio) 55%, #e8998d 100%);
+  background-attachment: fixed;
+}
+
+.tarjeta {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(22, 33, 62, 0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radio);
+  padding: 32px 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 2.1rem;
+  margin: 0 0 4px;
+}
+
+h1 span { color: var(--durazno); }
+
+.lead {
+  margin: 0 0 24px;
+  color: var(--texto-tenue);
+  font-size: 0.9rem;
+}
+
+.buscador {
+  display: flex;
+  gap: 8px;
+}
+
+.buscador input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--texto);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color .15s ease;
+}
+
+.buscador input::placeholder { color: var(--texto-tenue); }
+.buscador input:focus { border-color: var(--durazno); }
+
+.buscador button {
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  background: var(--durazno);
+  color: #16213e;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .12s ease, opacity .12s ease;
+}
+
+.buscador button:hover { transform: translateY(-1px); }
+.buscador button:focus-visible { outline: 2px solid var(--texto); outline-offset: 2px; }
+.buscador button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.mensaje {
+  min-height: 20px;
+  font-size: 0.85rem;
+  margin: 14px 2px 0;
+  color: #ffd2c2;
+}
+
+.resultado { margin-top: 20px; }
+.resultado.oculto { display: none; }
+
+.resultado-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.resultado-header h2 {
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+}
+
+.pais {
+  margin: 2px 0 0;
+  color: var(--texto-tenue);
+  font-size: 0.85rem;
+}
+
+.temperatura {
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin: 8px 0 0;
+  font-family: 'Fraunces', serif;
+}
+
+.descripcion {
+  margin: 0 0 18px;
+  color: var(--texto-tenue);
+  text-transform: capitalize;
+}
+
+.detalles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.detalle {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.etiqueta {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-tenue);
+  margin-bottom: 4px;
+}
+
+.valor { font-weight: 600; font-size: 0.95rem; }
+
+footer {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .tarjeta { padding: 26px 20px; }
+  .temperatura { font-size: 2.6rem; }
+}

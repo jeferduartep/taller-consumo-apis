@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClimApp · Clima actual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="tarjeta">
+    <h1>Clim<span>App</span></h1>
+    <p class="lead">Escribe una ciudad y presiona Enter o el botón buscar.</p>
+
+    <form id="formBusqueda" class="buscador" autocomplete="off">
+      <input
+        type="text"
+        id="inputCiudad"
+        placeholder="Ej: Medellín, Bogotá, Madrid…"
+        aria-label="Nombre de la ciudad"
+        required
+      />
+      <button type="submit" id="btnBuscar">Buscar</button>
+    </form>
+
+    <p id="mensaje" class="mensaje" role="status"></p>
+
+    <!-- Resultado del clima, oculto hasta tener datos -->
+    <section id="resultado" class="resultado oculto">
+      <div class="resultado-header">
+        <div>
+          <h2 id="ciudadNombre"></h2>
+          <p id="paisNombre" class="pais"></p>
+        </div>
+        <img id="icono" src="" alt="" width="70" height="70" />
+      </div>
+
+      <p id="temperatura" class="temperatura"></p>
+      <p id="descripcion" class="descripcion"></p>
+
+      <div class="detalles">
+        <div class="detalle">
+          <span class="etiqueta">Sensación</span>
+          <span id="sensacion" class="valor"></span>
+        </div>
+        <div class="detalle">
+          <span class="etiqueta">Humedad</span>
+          <span id="humedad" class="valor"></span>
+        </div>
+        <div class="detalle">
+          <span class="etiqueta">Viento</span>
+          <span id="viento" class="valor"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Taller de Consumo de APIs · Programación Web 2 · Ejercicio 2 · Datos por OpenWeatherMap</p>
+  </footer>
+
+  <script src="clima.js"></script>
+</body>
+</html>

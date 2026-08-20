@@ -1,0 +1,236 @@
+/* ===========================================================
+   Paleta "consola Pokédex clásica": rojo pokebola + pantalla crema
+   =========================================================== */
+:root {
+  --rojo: #e3350d;
+  --rojo-oscuro: #a8250a;
+  --crema: #fef6e4;
+  --carbon: #2b2b2b;
+  --azul: #3a7bd5;
+  --verde: #4caf50;
+  --amarillo: #f7c948;
+  --radio: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: 'Nunito', sans-serif;
+  background: radial-gradient(circle at top, #ff6b4a 0%, var(--rojo) 45%, var(--rojo-oscuro) 100%);
+  color: var(--carbon);
+}
+
+.consola {
+  width: 100%;
+  max-width: 430px;
+  background: var(--rojo);
+  border-radius: 26px;
+  padding: 22px 20px 28px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), inset 0 0 0 6px var(--rojo-oscuro);
+}
+
+.luces {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.luz {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: inset 0 -2px 3px rgba(0,0,0,0.3);
+}
+
+.luz-azul { background: var(--azul); width: 24px; height: 24px; box-shadow: 0 0 10px rgba(255,255,255,0.6), inset 0 -2px 3px rgba(0,0,0,0.3); }
+.luz-roja { background: #ff5252; }
+.luz-amarilla { background: var(--amarillo); }
+.luz-verde { background: var(--verde); }
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--crema);
+  font-size: 1.3rem;
+  text-shadow: 2px 2px 0 var(--rojo-oscuro);
+  margin: 0 0 16px;
+}
+
+.buscador {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.buscador input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.buscador button {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  background: var(--carbon);
+  color: var(--crema);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .12s ease;
+}
+
+.buscador button:hover { transform: translateY(-1px); }
+.buscador button:focus-visible { outline: 2px solid var(--crema); outline-offset: 2px; }
+
+.mensaje {
+  color: var(--crema);
+  font-size: 0.82rem;
+  min-height: 18px;
+  margin: 2px 4px 10px;
+}
+
+/* "Pantalla" de la Pokédex donde aparece la info */
+.pantalla {
+  background: var(--crema);
+  border-radius: var(--radio);
+  padding: 18px 18px 22px;
+  box-shadow: inset 0 0 0 4px #d8cba0;
+}
+
+.pantalla.oculto { display: none; }
+
+.tarjeta-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.tarjeta-header h2 {
+  margin: 0;
+  text-transform: capitalize;
+  font-size: 1.4rem;
+}
+
+.numero {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.75rem;
+  color: var(--rojo-oscuro);
+}
+
+.tipos {
+  display: flex;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.tipo-pill {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+.sprite {
+  display: block;
+  margin: 6px auto 12px;
+  width: 150px;
+  height: 150px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.25));
+}
+
+.stats { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+
+.stat {
+  display: grid;
+  grid-template-columns: 60px 1fr 34px;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+}
+
+.stat-etiqueta { font-weight: 700; }
+
+.stat-barra {
+  background: #e5dcc0;
+  border-radius: 6px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.stat-relleno {
+  height: 100%;
+  background: var(--verde);
+  border-radius: 6px;
+  width: 0%;
+  transition: width .5s ease;
+}
+
+.stat-valor { text-align: right; font-weight: 700; }
+
+.peso {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.habilidades h3 {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--rojo-oscuro);
+}
+
+.habilidades ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+}
+
+.habilidades li { text-transform: capitalize; margin-bottom: 2px; }
+
+footer {
+  margin-top: 18px;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+/* Colores por tipo de Pokémon */
+.tipo-normal   { background: #A8A878; }
+.tipo-fuego    { background: #F08030; }
+.tipo-agua     { background: #6890F0; }
+.tipo-eléctrico{ background: #F8D030; color: #2b2b2b; }
+.tipo-planta   { background: #78C850; }
+.tipo-hielo    { background: #98D8D8; color: #2b2b2b; }
+.tipo-lucha    { background: #C03028; }
+.tipo-veneno   { background: #A040A0; }
+.tipo-tierra   { background: #E0C068; color: #2b2b2b; }
+.tipo-volador  { background: #A890F0; }
+.tipo-psíquico { background: #F85888; }
+.tipo-bicho    { background: #A8B820; }
+.tipo-roca     { background: #B8A038; }
+.tipo-fantasma { background: #705898; }
+.tipo-dragón   { background: #7038F8; }
+.tipo-siniestro{ background: #705848; }
+.tipo-acero    { background: #B8B8D0; color: #2b2b2b; }
+.tipo-hada     { background: #EE99AC; color: #2b2b2b; }
+
+@media (max-width: 480px) {
+  .consola { padding: 18px 14px 22px; }
+  .sprite { width: 120px; height: 120px; }
+}
