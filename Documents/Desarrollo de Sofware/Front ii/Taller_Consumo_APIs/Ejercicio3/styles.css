@@ -23,7 +23,7 @@ body {
   justify-content: center;
   padding: 24px;
   font-family: 'Nunito', sans-serif;
-  background: radial-gradient(circle at top, #ff6b4a 0%, var(--rojo) 45%, var(--rojo-oscuro) 100%);
+  background: radial-gradient(circle at top, #b49b95 0%, var(--carbon) 45%, var(--rojo-oscuro) 100%);
   color: var(--carbon);
 }
 

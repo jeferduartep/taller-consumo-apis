@@ -8,7 +8,7 @@
    hasta un par de horas en activarse.
    =========================================================== */
 
-const API_KEY = 'TU_API_KEY_AQUI'; // <-- reemplaza esto con tu clave real
+const API_KEY = '803533d5e72d3c9fb8c0a8dd0bb94a8f'; // - Agrega tu ApiKey
 const URL_BASE = 'https://api.openweathermap.org/data/2.5/weather';
 
 // Elementos del DOM
